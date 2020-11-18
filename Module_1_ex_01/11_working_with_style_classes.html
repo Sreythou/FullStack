@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+        <title>Exercise 11</title>
+    </head>
+    <body>
+        <div id="app" v-bind:class="isActive ? 'hovered':'nothovered'" v-on:mouseover="isActive = true" v-on:mouseleave="isActive = false">
+            {{message}}
+        </div>
+        <style>
+            .hovered{
+                color: blue;
+                font-size: 40px
+            }
+            .nothovered{
+                color: red;
+                font-size: 30px
+            }
+        </style>
+    </body>
+</html>
+<script>
+    var app = new Vue({
+        el:"#app",
+        data:{
+            message : "Hello World",
+            isActive : false
+        }
+    })
+</script>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+        <title>Exercise 18</title>
+    </head>
+    <body>
+        <div id="app">
+            <outer :studentlist="studentDetails"></outer>
+        </div>
+    
+        <script type="text/x-template" id="inner">
+            <li>
+                ID: {{id}};  Name: {{name}};  Age: {{age}}
+            </li>
+        </script>
+    
+        <script type="text/x-template" id="outer">
+            <ol>
+                <inner v-for="student in studentlist" :id="student.id" :name="student.name" :age="student.age"></inner>
+            </ol>
+        </script>
+    
+        <script>
+            Vue.component('outer', {
+                template: '#outer',
+                props:{
+                    studentlist:{
+                        type: Array,
+                        required: true,
+                    }
+                }
+            })
+            Vue.component('inner', {
+                template: '#inner',
+                props: {
+                    id: {
+                        type: Number,
+                        required: true
+                    },
+                    name: {
+                        type: String,
+                        required: true
+                    },
+                    age: {
+                        type: Number,
+                        required: true
+                    }
+                }
+            })
+            new Vue({
+                el: "#app",
+                data: {
+                    studentDetails: [
+                        {
+                            id:110456,
+                            name: "Khean Sreythou",
+                            age: 20
+                        },
+                        {
+                            id:110732,
+                            name: "Thon Lynan",
+                            age: 20
+                        },
+                        {
+                            id:110921,
+                            name: "Chea Nataly",
+                            age: 21
+                        },
+                        {
+                            id:110482,
+                            name: "Heng Mouyleng",
+                            age: 19
+                        },
+                        {
+                            id:110582,
+                            name: "Thy Moyheang",
+                            age: 18
+                        }
+                    ]
+                }
+            })
+        </script>
+    </body>
+</html>
+
+<!-- Nested Vue components: Components allow us to encapsulate functionality and easily reuse them in multiple places in our applications. 
+    It is common to have components inside other components to compose the bigger features of our apps. -->
+

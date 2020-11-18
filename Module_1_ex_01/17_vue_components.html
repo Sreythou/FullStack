@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+        <title>Exercise 17</title>
+    </head>
+    <body>
+        <div>
+            <kit  id = 'app'>
+                <h1 id = 'display'></h1>
+            </kit>
+        </div>
+    </body>
+</html>
+<script>
+
+    var app = new Vue({
+        el : '#app'
+    })
+
+    // Define a new component called button-counter
+    Vue.component('kit', {
+        data: function() {
+            return {
+                schoolName: 'Kirirom Institute of Technology'
+            }
+        },
+        methods: {
+            getAscii: () => {
+                ascii = 0,
+                stringAscii = this.schoolName.split(''),
+                stringAscii.forEach((str) =>{
+                    ascii += str.charCodeAt(0)
+                }),
+                document.getElementById('display').innerHTML = "The Ascii value of school name is " + ascii
+            }
+        },
+        template: "<button v-on:click = 'getAscii'>Click here</button>"
+    })
+
+</script>
+
+<!-- Components: Components are one of the most powerful features of Vue.js. They help you extend basic HTML elements to encapsulate reusable code. 
+    At a high level, Components are custom elements that Vue.js’ compiler would attach specified behavior to. 
+    In some cases, they may also appear as a native HTML element extended with the special is attribute.
+    Props are custom attributes you can register on a component. When a value is passed to a prop attribute, it becomes a property on that component instance. -->

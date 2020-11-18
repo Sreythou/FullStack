@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+        <title>Exercise 12</title>
+    </head>
+    <body>
+        <div id="app">
+            <form>
+                <input type="text" placeholder="Enter your name here" v-model="name">
+            </form>
+            
+            <h1 v-if = "name == 'Lynan'" style = "color: green">Access Granted welcome Mr/Ms. {{name}}</h1>
+            <h1 v-else style = "color: red">Access Denied Sorry Mr/Ms. {{name}}</h1>
+        </div>
+    </body>
+</html>
+<script>
+    var app = new Vue({
+        el:"#app",
+        data:{
+            name:"",
+            isActive: true
+        }
+    })
+</script>

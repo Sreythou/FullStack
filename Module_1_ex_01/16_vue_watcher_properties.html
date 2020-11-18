@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+        <title>Exercise 16</title>
+    </head>
+    <body>
+        <div id="app">
+            <button v-on:click="status = !status">Change Status</button>
+        </div>
+    </body>
+</html>
+<script>
+    var app = new Vue({
+        el : "#app",
+        data : {
+            status: false
+        },
+        watch : {
+            // whenever status change, this function will run
+            status : function(newStatus, oldStatus){
+                console.log("Status Change", {newStatus})
+            }
+        }
+    })
+</script>
+
+<!--Watchers use to perform asynchronous or expensive operations in response to changing data. 
+    It also used to limit how often we perform that operation and set intermediary states until
+    we get a final answer. -->

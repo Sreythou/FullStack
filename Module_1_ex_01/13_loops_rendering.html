@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+        <title>Exercise 13</title>
+    </head>
+    <body>
+        <div id="app">
+            <table v-for="list in table_details">
+                <tr>
+                    <td>
+                        <ol>
+                            {{list.id}} : {{list.name}} : {{list.age}}
+                        </ol>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </body>
+</html>
+<script>
+    var app = new Vue({
+        el:"#app",
+        data:{
+            table_details:[
+                {
+                    id:110456,
+                    name: "Khean Sreythou",
+                    age: 20
+                },
+                {
+                    id:110732,
+                    name: "Thon Lynan",
+                    age: 20
+                },
+                {
+                    id:110482,
+                    name: "Heng Mouyleng",
+                    age: 19
+                },
+                {
+                    id:110582,
+                    name: "Thy Moyheang",
+                    age: 18
+                }
+            ]
+        }
+    })
+</script>
